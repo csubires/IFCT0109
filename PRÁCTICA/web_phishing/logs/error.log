@@ -1,0 +1,155 @@
+2026/03/03 06:52:41 [notice] 1#1: using the "epoll" event method
+2026/03/03 06:52:41 [notice] 1#1: nginx/1.28.2
+2026/03/03 06:52:41 [notice] 1#1: built by gcc 15.2.0 (Alpine 15.2.0) 
+2026/03/03 06:52:41 [notice] 1#1: OS: Linux 6.8.0-101-generic
+2026/03/03 06:52:41 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1024:524288
+2026/03/03 06:52:41 [notice] 1#1: start worker processes
+2026/03/03 06:52:41 [notice] 1#1: start worker process 21
+2026/03/03 06:52:41 [notice] 1#1: start worker process 22
+2026/03/03 06:52:41 [notice] 1#1: start worker process 23
+2026/03/03 06:52:41 [notice] 1#1: start worker process 24
+2026/03/03 06:52:41 [notice] 1#1: start worker process 25
+2026/03/03 06:52:41 [notice] 1#1: start worker process 26
+2026/03/03 06:52:41 [notice] 1#1: start worker process 27
+2026/03/03 06:52:41 [notice] 1#1: start worker process 28
+2026/03/03 07:37:42 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+2026/03/03 07:37:42 [notice] 21#21: gracefully shutting down
+2026/03/03 07:37:42 [notice] 22#22: gracefully shutting down
+2026/03/03 07:37:42 [notice] 25#25: gracefully shutting down
+2026/03/03 07:37:42 [notice] 26#26: gracefully shutting down
+2026/03/03 07:37:42 [notice] 23#23: gracefully shutting down
+2026/03/03 07:37:42 [notice] 28#28: gracefully shutting down
+2026/03/03 07:37:42 [notice] 27#27: gracefully shutting down
+2026/03/03 07:37:42 [notice] 22#22: exiting
+2026/03/03 07:37:42 [notice] 21#21: exiting
+2026/03/03 07:37:42 [notice] 26#26: exiting
+2026/03/03 07:37:42 [notice] 25#25: exiting
+2026/03/03 07:37:42 [notice] 23#23: exiting
+2026/03/03 07:37:42 [notice] 27#27: exiting
+2026/03/03 07:37:42 [notice] 28#28: exiting
+2026/03/03 07:37:42 [notice] 24#24: gracefully shutting down
+2026/03/03 07:37:42 [notice] 21#21: exit
+2026/03/03 07:37:42 [notice] 22#22: exit
+2026/03/03 07:37:42 [notice] 23#23: exit
+2026/03/03 07:37:42 [notice] 26#26: exit
+2026/03/03 07:37:42 [notice] 24#24: exiting
+2026/03/03 07:37:42 [notice] 25#25: exit
+2026/03/03 07:37:42 [notice] 27#27: exit
+2026/03/03 07:37:42 [notice] 28#28: exit
+2026/03/03 07:37:42 [notice] 24#24: exit
+2026/03/03 07:37:42 [notice] 1#1: signal 17 (SIGCHLD) received from 28
+2026/03/03 07:37:42 [notice] 1#1: worker process 28 exited with code 0
+2026/03/03 07:37:42 [notice] 1#1: signal 29 (SIGIO) received
+2026/03/03 07:37:42 [notice] 1#1: signal 17 (SIGCHLD) received from 25
+2026/03/03 07:37:42 [notice] 1#1: worker process 25 exited with code 0
+2026/03/03 07:37:42 [notice] 1#1: signal 29 (SIGIO) received
+2026/03/03 07:37:42 [notice] 1#1: signal 17 (SIGCHLD) received from 24
+2026/03/03 07:37:42 [notice] 1#1: worker process 24 exited with code 0
+2026/03/03 07:37:42 [notice] 1#1: signal 29 (SIGIO) received
+2026/03/03 07:37:42 [notice] 1#1: signal 17 (SIGCHLD) received from 21
+2026/03/03 07:37:42 [notice] 1#1: worker process 21 exited with code 0
+2026/03/03 07:37:42 [notice] 1#1: worker process 23 exited with code 0
+2026/03/03 07:37:42 [notice] 1#1: worker process 22 exited with code 0
+2026/03/03 07:37:42 [notice] 1#1: signal 29 (SIGIO) received
+2026/03/03 07:37:42 [notice] 1#1: signal 17 (SIGCHLD) received from 22
+2026/03/03 07:37:42 [notice] 1#1: signal 17 (SIGCHLD) received from 26
+2026/03/03 07:37:42 [notice] 1#1: worker process 26 exited with code 0
+2026/03/03 07:37:42 [notice] 1#1: signal 29 (SIGIO) received
+2026/03/03 07:37:42 [notice] 1#1: signal 17 (SIGCHLD) received from 27
+2026/03/03 07:37:42 [notice] 1#1: worker process 27 exited with code 0
+2026/03/03 07:37:42 [notice] 1#1: exit
+[Tue Mar 03 07:45:16.924882 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:17.387955 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:17.907901 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:18.614412 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:19.700736 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:21.590809 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:25.098915 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:31.790639 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:44.900234 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:45.416817 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:45.873320 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:46.342243 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:47.043643 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:48.152746 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:50.031509 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:45:53.518984 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:46:00.220468 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:46:13.314141 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:46:39.202060 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:47:30.697205 2026] [core:crit] [pid 1:tid 1] AH00136: Server MUST relinquish startup privileges before accepting connections.  Please ensure mod_unixd or other system security module is loaded.
+AH00016: Configuration Failed
+[Tue Mar 03 07:48:10.757784 2026] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.66 (Unix) configured -- resuming normal operations
+[Tue Mar 03 07:48:10.757862 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+[Tue Mar 03 10:58:08.277905 2026] [mpm_event:notice] [pid 1:tid 1] AH00492: caught SIGWINCH, shutting down gracefully
+[Tue Mar 03 10:58:22.986639 2026] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.66 (Unix) configured -- resuming normal operations
+[Tue Mar 03 10:58:22.986723 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+[Tue Mar 03 11:02:12.126507 2026] [mpm_event:notice] [pid 1:tid 1] AH00492: caught SIGWINCH, shutting down gracefully
+[Tue Mar 03 11:02:13.536611 2026] [mpm_event:notice] [pid 1:tid 1] AH00489: Apache/2.4.66 (Unix) configured -- resuming normal operations
+[Tue Mar 03 11:02:13.536660 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'httpd -D FOREGROUND'
+[Tue Mar 03 11:10:22.300777 2026] [mpm_event:notice] [pid 1:tid 1] AH00492: caught SIGWINCH, shutting down gracefully
+[Tue Mar 03 11:12:20.498275 2026] [ssl:warn] [pid 27:tid 27] AH01906: 172.18.0.2:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Tue Mar 03 11:12:20.498410 2026] [ssl:warn] [pid 27:tid 27] AH01909: 172.18.0.2:443:0 server certificate does NOT include an ID which matches the server name
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+[Tue Mar 03 11:12:20.553434 2026] [ssl:warn] [pid 27:tid 27] AH01906: 172.18.0.2:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Tue Mar 03 11:12:20.553478 2026] [ssl:warn] [pid 27:tid 27] AH01909: 172.18.0.2:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Mar 03 11:12:20.565919 2026] [mpm_prefork:notice] [pid 27:tid 27] AH00163: Apache/2.4.66 (Debian) PHP/8.2.30 OpenSSL/3.5.4 configured -- resuming normal operations
+[Tue Mar 03 11:12:20.565947 2026] [core:notice] [pid 27:tid 27] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Tue Mar 03 11:16:47.975020 2026] [ssl:warn] [pid 27:tid 27] AH01906: 172.18.0.2:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Tue Mar 03 11:16:47.975146 2026] [ssl:warn] [pid 27:tid 27] AH01909: 172.18.0.2:443:0 server certificate does NOT include an ID which matches the server name
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+[Tue Mar 03 11:16:48.009962 2026] [ssl:warn] [pid 27:tid 27] AH01906: 172.18.0.2:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Tue Mar 03 11:16:48.009989 2026] [ssl:warn] [pid 27:tid 27] AH01909: 172.18.0.2:443:0 server certificate does NOT include an ID which matches the server name
+[Tue Mar 03 11:16:48.020767 2026] [mpm_prefork:notice] [pid 27:tid 27] AH00163: Apache/2.4.66 (Debian) PHP/8.2.30 OpenSSL/3.5.4 configured -- resuming normal operations
+[Tue Mar 03 11:16:48.020795 2026] [core:notice] [pid 27:tid 27] AH00094: Command line: 'apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+[Tue Mar 03 12:33:33.536351 2026] [mpm_prefork:notice] [pid 11:tid 11] AH00163: Apache/2.4.66 (Debian) PHP/8.2.30 OpenSSL/3.5.4 configured -- resuming normal operations
+[Tue Mar 03 12:33:33.536432 2026] [core:notice] [pid 11:tid 11] AH00094: Command line: 'apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+[Wed Mar 04 06:21:51.672262 2026] [mpm_prefork:notice] [pid 11:tid 11] AH00163: Apache/2.4.66 (Debian) PHP/8.2.30 OpenSSL/3.5.4 configured -- resuming normal operations
+[Wed Mar 04 06:21:51.672327 2026] [core:notice] [pid 11:tid 11] AH00094: Command line: 'apache2 -D FOREGROUND'
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+[Thu Mar 05 06:34:30.831044 2026] [mpm_prefork:notice] [pid 11:tid 11] AH00163: Apache/2.4.66 (Debian) PHP/8.2.30 OpenSSL/3.5.4 configured -- resuming normal operations
+[Thu Mar 05 06:34:30.831110 2026] [core:notice] [pid 11:tid 11] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Thu Mar 05 06:52:31.238072 2026] [ssl:warn] [pid 11:tid 11] AH01906: 172.18.0.2:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Mar 05 06:52:31.238299 2026] [ssl:warn] [pid 11:tid 11] AH01909: 172.18.0.2:443:0 server certificate does NOT include an ID which matches the server name
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+[Thu Mar 05 06:52:31.271568 2026] [ssl:warn] [pid 11:tid 11] AH01906: 172.18.0.2:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Mar 05 06:52:31.271599 2026] [ssl:warn] [pid 11:tid 11] AH01909: 172.18.0.2:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Mar 05 06:52:31.275891 2026] [mpm_prefork:notice] [pid 11:tid 11] AH00163: Apache/2.4.66 (Debian) PHP/8.2.30 OpenSSL/3.5.4 configured -- resuming normal operations
+[Thu Mar 05 06:52:31.275917 2026] [core:notice] [pid 11:tid 11] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Thu Mar 05 07:15:30.546566 2026] [ssl:warn] [pid 11:tid 11] AH01906: 172.18.0.2:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Mar 05 07:15:30.546647 2026] [ssl:warn] [pid 11:tid 11] AH01909: 172.18.0.2:443:0 server certificate does NOT include an ID which matches the server name
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+[Thu Mar 05 07:15:30.578074 2026] [ssl:warn] [pid 11:tid 11] AH01906: 172.18.0.2:443:0 server certificate is a CA certificate (BasicConstraints: CA == TRUE !?)
+[Thu Mar 05 07:15:30.578098 2026] [ssl:warn] [pid 11:tid 11] AH01909: 172.18.0.2:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Mar 05 07:15:30.582628 2026] [mpm_prefork:notice] [pid 11:tid 11] AH00163: Apache/2.4.66 (Debian) PHP/8.2.30 OpenSSL/3.5.4 configured -- resuming normal operations
+[Thu Mar 05 07:15:30.582653 2026] [core:notice] [pid 11:tid 11] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Thu Mar 05 08:44:35.235585 2026] [ssl:warn] [pid 11:tid 11] AH01909: 172.18.0.2:443:0 server certificate does NOT include an ID which matches the server name
+AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+[Thu Mar 05 08:44:35.271154 2026] [ssl:warn] [pid 11:tid 11] AH01909: 172.18.0.2:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Mar 05 08:44:35.275827 2026] [mpm_prefork:notice] [pid 11:tid 11] AH00163: Apache/2.4.66 (Debian) PHP/8.2.30 OpenSSL/3.5.4 configured -- resuming normal operations
+[Thu Mar 05 08:44:35.275858 2026] [core:notice] [pid 11:tid 11] AH00094: Command line: 'apache2 -D FOREGROUND'
+[Thu Mar 05 08:47:19.405850 2026] [ssl:warn] [pid 11:tid 11] AH01909: 192.168.40.30:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Mar 05 08:47:19.439509 2026] [ssl:warn] [pid 11:tid 11] AH01909: 192.168.40.30:443:0 server certificate does NOT include an ID which matches the server name
+[Thu Mar 05 08:47:19.444668 2026] [mpm_prefork:notice] [pid 11:tid 11] AH00163: Apache/2.4.66 (Debian) PHP/8.2.30 OpenSSL/3.5.4 configured -- resuming normal operations
+[Thu Mar 05 08:47:19.444725 2026] [core:notice] [pid 11:tid 11] AH00094: Command line: 'apache2 -D FOREGROUND'

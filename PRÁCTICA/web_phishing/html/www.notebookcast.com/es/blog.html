@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <title>Pizarra online</title>
+
+
+    <link href="../css/fonts-rubik.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/fav/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/fav/favicon.ico">
+    <link href="../css/theme.css%3Fu=2.css" rel="stylesheet">
+    
+    
+    
+   
+    <link href="../fontawesome5/css/all.min.css" rel="stylesheet">
+    
+    
+    <link href="../css/slick.css" rel="stylesheet">
+   
+
+
+   <link href="../css/prism.css" rel="stylesheet">
+
+   
+   
+
+    
+   <link href="../css/cookiealert.css" rel="stylesheet">
+
+   <script>
+       var nbcTimeOuterForm;
+       var nbcTimeOuterForm2;
+       var timerForMessage =5000;
+       var htmlPassInstructions="" +
+           "<span class=\"text-danger\">- &nbsp;&nbsp;Por lo menos ocho caracteres</span><br/>"+
+           "<span >- &nbsp;&nbsp;Contiene al menos 3 de los 4 tipos de caracteres siguientes:</span><ul>"+
+           "<li class=\"text-success\">Letras minúsculas  (a-z)</span></li>"+
+           "<li class=\"text-success\">Letras mayúsculas (A-Z)</span></li>"+
+           "<li class=\"text-success\">Números (0-9)</span></li>"+
+           "<li class=\"text-success\">Caracteres especiales (!@~$%\u0026^*)</span></li>"+
+           "</ul>"
+       ;
+
+       var htmlUsernameInstructions="" +
+           "<span class=\"text-danger\">- &nbsp;&nbsp;Por lo menos 8 caracteres de longitud</span><br/>"+
+           "<span >- &nbsp;&nbsp;Contiene solamente:</span><ul>"+
+           "<li class=\"text-success\"> Números (0-9)</span></li>"+
+           "<li class=\"text-success\"> Letras minúsculas (a-z)</span></li>"+
+           "<li class=\"text-success\">Los siguientes caracteres especiales(- _ .)</span></li>"+
+           "</ul>";
+
+var ApiUrl = "https:\/\/ipa-og.notebookcast.com";
+
+var BaseUrl = "https:\/\/www.notebookcast.com";
+var Lang = "es";
+var UpdatePasswordFormErrorMissing = "Falta campo obligatorio";
+var UpdatePasswordFormError = "No se ha podido actualizar la contraseña, verifica contraseña actual";
+var UpdatePasswordFormErrorComplex = "Contraseña demasiado simple, por favor pon una contraseña con al menos 8 caracteres,  combina mayúsculas, minúsculas, un numero y algún carácter especial por ejemplo !@#$%*()-=\u002b,.?";
+var UpdatePasswordFormErrorNoMatch = "Contraseña y confirmar contraseña no coinciden";
+var EmailAlreadyRegistered= "Email ya registrado";
+var UserAlreadyUsed = "Nombre usuario no disponible, seleccionar otro";
+var NotValidUserName = "Nombre de usuario no valido, debe tener solo números y caracteres y tener longitud de 8 o mas.";
+var NotValidEmail = "Email no valido";
+var RegisterGenericError = "Error interno del sistema al registrar, por favor intentelo mas tarde o contacta con soporte";
+var PleaseAcceptTerms= "Por favor, acepte los términos y condiciones.";
+var WrongUserNamePassword= "Correo o contraseña no correctos";
+var LoginFormErrorMissing= "Falta campo obligatorio";
+var LoginGenericError= "Error interno de sistema";
+
+var LanguageTxtActive = "Activo";
+var LanguageTxtNo = "No";
+var LanguageTxtLocked = "Bloqueado";
+var LanguageTxtOpen = "Abrir";
+
+var LanguageTxtJoinGenericError = "Error interno del sistema al unirse a la pizarra, por favor intentelo mas tarde o contacta con soporte";
+var LanguageTxtCreateBoardGenericError =  "Error interno del sistema al crear pizarra, por favor intentelo mas tarde o contacta con soporte";
+var LanguageTxtMissingRequiredField =       "Falta campo obligatorio";
+
+var LanguageTxtEditBoardGenericError = "Error al actualizar pizarra";
+
+var LanguageTxtBoardDontExist = "Esta pizarra no existe";
+
+var LanguageTxtInternalError = "Lo sentimos, error interno del sistema";
+
+var LanguageTxtWrongCurrentPassword  = "Contraseña actual no correcta";
+
+var LanguageTxtUpdatePasswordFormErrorNoMatch = "Contraseña y confirmar contraseña no coinciden";
+var LanguageTxtUpdatePasswordFormErrorComplex   = "Contraseña demasiado simple, por favor pon una contraseña con al menos 8 caracteres,  combina mayúsculas, minúsculas, un numero y algún carácter especial por ejemplo !@#$%*()-=\u002b,.?";
+var LanguageTxtUpdatePasswordFormSuccess = "Contraseña actualizada";
+var LanguageTxtLogin = "Ingresar";
+var LanguageTxtRegister = "Crear cuenta";
+var LanguageTxtConfirmEmailSuccessful = "Correo confirmado correctamente";
+var LanguageTxtConfirmEmailNotSuccessful = "Código no válido o correo ha sido confirmado previamente";
+var LanguageTxtFeedBackReceived =  "Mensaje enviado!\u003cbr\/\u003eGracias por tu mensaje, revisaremos tu mensaje lo antes posible.";
+var LanguageTxtFeedBackError = "Error al enviar";
+var LanguageTxtConfirmEmailRecover = "Se ha enviado correo electrónico de recuperatión de contraseña";
+var LanguageTxtEmailNotFound = "Correo electrónico no encontrado";
+var LanguageTxtEmailNotValid = "Correo electrónico no válido";
+var LanguageTxtResetPasswordCodeNotFound= "El código para crear la nueva contraseña no válido";
+var LanguageTxtChooseTemplate= "Seleccionar plantilla";
+var LanguageTxtDeleteWhiteboardError= "Error, no se ha podido borrar la pizarra";
+var LanguageTxtDeleteTemplateError= "Error, no se ha podido borrar la plantilla";
+var LanguageTxtProfileUpdatedSuccessMessage = "Perfil actualizado";
+var LanguageTxtProfilePictureTooBig = "Tamaño de imagen demasiado grande(max 10mb)";
+var LanguageTxtProfilePictureWrongExt = "Tipo de archivo no correcto, permitidos: jpg, jpeg, gif, png";
+var LanguageTxtDeleteUserGenericError = "No se ha podido eliminar la cuenta";
+var LanguageTxtNetworkError = "Error de red";
+var EmailUsedDeletedAccount = "Este correo ha sido usado en una cuenta eliminada, por favor contacta con soporte";
+var LanguageTxtOpenDrawBoard = "Abrir (Dibujar)";
+var LanguageTxtMessageNoAuthorization = "No tienes permisos para acceder a esta pagina.";
+var LanguageTxtConfirmEmailSendSuccess= "Correo de confirmación enviado";
+var LanguageTxtConfirmEmailSendError= "Error al enviar el correo de confirmación";
+var LanguageTxtAlreadyConfirmedAccount = "Tu cuenta ya esta confirmada.";
+var LanguageBoardLocked             = "Pizarra deshabilitada temporalmente por su dueño";
+var LanguageTxtNotAuthorizedMaybeLogin = "No está autorizado para realizar esta acción, tal vez deba volver a iniciar sesión.";
+var LanguageTxtTooManyEmailsSentConfirm = "Recientemente se envió un correo electrónico, verifique su correo electrónico, también puede intentarlo nuevamente en unas horas.";
+var LanguageTxtTemplateUpdated = "Plantilla actualizada";
+var LanguageTxtWhiteboardUpdated = "Pizarra actualizada";
+var LanguageTxtNewsletterUnsubscribeSuccess= "Ha sido dadao debaja de nuestra lista ce correos.";
+var LanguageTxtNewsletterUnsubscribeFail= "Error al relalizar la petición.";
+var LanguageTxtNewsletterUnsubscribeAlreadyDone= "No estas suscrito a la newsletter o el código no existe";
+var LanguageTxtUserUpdateGenericError = "No se ha podido actualizar los datos de usuario";
+var LanguageTxtAccountNotFound = "Cuenta no encontrada";
+var LanguageTxtEmailUpdatedSuccessMessage = "Correo actualizado.";
+var LanguageTxtEmailNoChange  = "El correo electrónico no ha cambiado";
+var LanguageTxtPleaseLoginToUseAudioBoard = "Inicie sesión en su cuenta gratuita para crear con la pizarra de funciones de audio.";
+var LanguageTxtSettingsWhiteboard= "Ajustes de la pizarra";
+var LanguageTxtConsentIntro= "\u003cb\u003eNuestro sitio web utiliza cookies\u003c\/b\u003e\u003cbr\u003eNotebookCast utiliza cookies propias y de terceros y tecnologías similares con fines estadísticos y de marketing. Puede configurar sus preferencias seleccionando las opciones a continuación. Retira tu consentimiento en cualquier momento a través del icono de escudo.";
+var LanguageTxtConsent1= "Las cookies necesarias ayudan con la funcionalidad básica de nuestro sitio web, p. recordar si dio su consentimiento para las cookies, recordar la configuración de las herramientas de su pizarra.";
+var LanguageTxtConsent2= "Las cookies de marketing permiten mostrarle anuncios más relevantes en nuestro sitio web, específicamente utilizamos los productos publicitarios de Google.";
+var LanguageTxtConsent3= "Las cookies analíticas permiten recopilar estadísticas sobre el uso y el tráfico en nuestro sitio web, para que podamos mejorarlo.";
+var LanguageTxtConsentAcceptAll= "Aceptar todo";
+var LanguageTxtConsentAccepSelected= "Aceptar solo seleccionados";
+var LanguageTxtLoadingButton = "Cargando...";
+var LanguageTxtCreate = "Crear";
+var LanguageTooManyRequests = "Error de red o Demasiadas solicitudes desde tu ubicación, inténtalo de nuevo en un rato.";
+var LanguageAlreadyDoneInLast30 = "Ya solicitado en los últimos 30 minutos";
+
+var Token;
+
+</script>
+</head>
+
+<body class="bg-light">
+
+
+<nav class="py-3 navbar navbar-expand-lg fixed-top auto-hiding-navbar navbar-light">
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <a id="topLogoLinkId" class="navbar-brand py-0" href="https://www.notebookcast.com/es"><span></span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-otherrrrrrrrrr">
+                <i class="  fas fa-solid fa-bars"></i>
+            </span>
+
+
+        </button>
+
+
+
+
+
+        <div class="collapse navbar-collapse" id="navbar-content">
+            <ul class="navbar-nav ml-auto text-nowrap">
+                <li class="nav-item mx-1"><a id="topNavHomeId" class="nav-link" href="https://www.notebookcast.com/es">Home</a></li>
+                
+                
+                    <li class="nav-item mx-1"><a id="topNavJoinBoardId" class="nav-link "  href="join-board.html">Unirse a una pizarra</a></li>
+                    <li class="nav-item mx-1"><a id="topNavCreateBoardId" class="nav-link  " href="new-board.html">Crear pizarra</a></li>
+                
+
+
+
+
+                <li class="nav-item ml-1 mr-3 dropdown">
+                    <a class="nav-link dropdown-toggle " id="docs-dropdown" href="blog.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Centro de ayuda</a>
+                    <div class="dropdown-menu animated_dropdown shadow-lg" aria-labelledby="docs-dropdown">
+                       
+                        <a id="topNavHelpId" class="dropdown-item" href="docs/introduction.html">Ayuda</a>
+                        <a id="topNavFaqId" class="dropdown-item" href="docs/faqs.html">Preguntas frecuentes</a>
+                        <a id="topNavSupportId" class="dropdown-item" href="docs/support.html">Soporte</a>
+                        <a id="topNavChangeLogId" class="dropdown-item" href="docs/changelog.html">Últimos cambios</a>
+                    </div>
+                </li>
+
+
+                <li class="nav-item mx-1"><a id="topNavBlog" class="nav-link   active-top-menu  " href="blog.html">Blog</a></li>
+
+
+                
+                <li class="nav-item mx-1"><a id="topNavNewAccountId"  class="nav-link " href="register.html">Crear cuenta</a></li>
+                <li class="nav-item mx-1"><a id="topNavLoginId" class="nav-link "  href="login.html"><i class="far fa-user mr-2"></i>Ingresar</a></li>
+
+                
+
+                
+                    
+
+
+                    
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="bg-light" id="blog">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mr-auto" style="padding-top: 100px">
+        <div class="card-deck mb-5"><div class="card rounded-lg overflow-hidden hvr-float"><img class="card-img-top" alt=""
+                                                            src="blog.html">
+    <div class="card-body px-5 pt-4">
+        <div class="mt-2 mb-3 text-muted small"><i class="far fa-clock mr-2"></i><span class="last-update-date">Last updated:</span> 25 Sep 2024</div>
+        <a class="h5 text-dark stretched-link" href="blog/alternativa-a-jamboard.html">NotebookCast: una alternativa viable a Jamboard </a>
+        <p class="text-muted my-2">Jamboard, la herramienta de pizarra digital de Google, se utiliza ampliamente para el aprendizaje interactivo, la lluvia de ideas y la colaboración en equipo. Sin embargo, debido al ##cierre de Jamboard##, a medida que los usuarios exploran alternativas que ofrecen funciones similares y mantiener la simplicidad de Jamboard, NotebookCast ha surgido como una gran solución con funciones potentes pero que se mantiene simple, especialmente para educadores, enseñanza y grupos de estudio en línea.</p>
+        <span class="read-more text-uppercase text-decoration-underline"> Leer más </span>
+    </div>
+    <div class="card-footer text-muted bg-white border-0 pb-4 rounded-lg px-5">
+        <hr class="mb-4 mt-0">
+        <div class="d-flex align-items-center">
+<img class="rounded-circle my-auto mr-3" alt="Photo" src="data:image/jpeg;base64, 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" height="32"><span class="initialism text-muted">Marta S. | Teacher</span>
+        </div>
+    </div>
+</div></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script src="../js/jquery-3.5.1.min.js"> </script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/slick.min.js"></script>
+<script src="../js/wow.min.js"></script>
+<script src="../js/jquery.fancybox.min.js"></script>
+<script src="../js/jarallax.js"></script>
+<script src="../js/smooth-scroll.js"></script>
+<script src="../js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+
+<script src="../js/jquery.inview.min.js" type="module"></script>
+<script src="../js/pace.min.js" type="module"></script>
+<script src="../js/prism.js"></script>
+<script src="../js/typed.js"></script>
+<script src="../js/theme.js" type="module"></script>
+</body>
+
+
+</html>

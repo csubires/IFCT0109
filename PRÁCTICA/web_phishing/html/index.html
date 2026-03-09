@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Login</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #eef2f7, #d9e2ec);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-container {
+    background: #ffffff;
+    padding: 35px;
+    width: 100%;
+    max-width: 380px;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #333;
+    font-weight: 600;
+}
+
+#login_form input {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #ccd6dd;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+#login_form input:focus {
+    border-color: #2c7be5;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(44, 123, 229, 0.15);
+}
+
+#login_form button {
+    width: 100%;
+    padding: 12px;
+    background-color: #2c7be5;
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#login_form button:hover {
+    background-color: #1a68d1;
+}
+
+.footer {
+    text-align: center;
+    margin-top: 18px;
+    font-size: 12px;
+    color: #777;
+}
+</style>
+</head>
+
+<body>
+
+<div class="login-container">
+    <h2>Mi E‑Commerce</h2>
+
+    <form id="login_form" action="post.php" method="post" novalidate>
+        <input name="email" type="text" placeholder="Email">
+        <input name="pass" type="password" placeholder="Contraseña">
+        <button type="submit">Iniciar Sesión</button>
+    </form>
+
+    <div class="footer">
+        © 2026 Demo educativa
+    </div>
+</div>
+
+</body>
+</html>

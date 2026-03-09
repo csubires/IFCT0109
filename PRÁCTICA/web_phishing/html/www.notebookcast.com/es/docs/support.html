@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+
+    <title>Pizarra online</title>
+
+
+    <link href="../../css/fonts-rubik.css" rel="stylesheet">
+    <link rel="icon" type="image/png" sizes="32x32" href="../../images/fav/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../images/fav/favicon.ico">
+    <link href="../../css/theme.css%3Fu=2.css" rel="stylesheet">
+    
+    
+    
+   
+    <link href="../../fontawesome5/css/all.min.css" rel="stylesheet">
+    
+    
+    <link href="../../css/slick.css" rel="stylesheet">
+   
+
+
+   <link href="../../css/prism.css" rel="stylesheet">
+
+   
+   
+
+    
+   <link href="../../css/cookiealert.css" rel="stylesheet">
+
+   <script>
+       var nbcTimeOuterForm;
+       var nbcTimeOuterForm2;
+       var timerForMessage =5000;
+       var htmlPassInstructions="" +
+           "<span class=\"text-danger\">- &nbsp;&nbsp;Por lo menos ocho caracteres</span><br/>"+
+           "<span >- &nbsp;&nbsp;Contiene al menos 3 de los 4 tipos de caracteres siguientes:</span><ul>"+
+           "<li class=\"text-success\">Letras minúsculas  (a-z)</span></li>"+
+           "<li class=\"text-success\">Letras mayúsculas (A-Z)</span></li>"+
+           "<li class=\"text-success\">Números (0-9)</span></li>"+
+           "<li class=\"text-success\">Caracteres especiales (!@~$%\u0026^*)</span></li>"+
+           "</ul>"
+       ;
+
+       var htmlUsernameInstructions="" +
+           "<span class=\"text-danger\">- &nbsp;&nbsp;Por lo menos 8 caracteres de longitud</span><br/>"+
+           "<span >- &nbsp;&nbsp;Contiene solamente:</span><ul>"+
+           "<li class=\"text-success\"> Números (0-9)</span></li>"+
+           "<li class=\"text-success\"> Letras minúsculas (a-z)</span></li>"+
+           "<li class=\"text-success\">Los siguientes caracteres especiales(- _ .)</span></li>"+
+           "</ul>";
+
+var ApiUrl = "https:\/\/ipa-og.notebookcast.com";
+
+var BaseUrl = "https:\/\/www.notebookcast.com";
+var Lang = "es";
+var UpdatePasswordFormErrorMissing = "Falta campo obligatorio";
+var UpdatePasswordFormError = "No se ha podido actualizar la contraseña, verifica contraseña actual";
+var UpdatePasswordFormErrorComplex = "Contraseña demasiado simple, por favor pon una contraseña con al menos 8 caracteres,  combina mayúsculas, minúsculas, un numero y algún carácter especial por ejemplo !@#$%*()-=\u002b,.?";
+var UpdatePasswordFormErrorNoMatch = "Contraseña y confirmar contraseña no coinciden";
+var EmailAlreadyRegistered= "Email ya registrado";
+var UserAlreadyUsed = "Nombre usuario no disponible, seleccionar otro";
+var NotValidUserName = "Nombre de usuario no valido, debe tener solo números y caracteres y tener longitud de 8 o mas.";
+var NotValidEmail = "Email no valido";
+var RegisterGenericError = "Error interno del sistema al registrar, por favor intentelo mas tarde o contacta con soporte";
+var PleaseAcceptTerms= "Por favor, acepte los términos y condiciones.";
+var WrongUserNamePassword= "Correo o contraseña no correctos";
+var LoginFormErrorMissing= "Falta campo obligatorio";
+var LoginGenericError= "Error interno de sistema";
+
+var LanguageTxtActive = "Activo";
+var LanguageTxtNo = "No";
+var LanguageTxtLocked = "Bloqueado";
+var LanguageTxtOpen = "Abrir";
+
+var LanguageTxtJoinGenericError = "Error interno del sistema al unirse a la pizarra, por favor intentelo mas tarde o contacta con soporte";
+var LanguageTxtCreateBoardGenericError =  "Error interno del sistema al crear pizarra, por favor intentelo mas tarde o contacta con soporte";
+var LanguageTxtMissingRequiredField =       "Falta campo obligatorio";
+
+var LanguageTxtEditBoardGenericError = "Error al actualizar pizarra";
+
+var LanguageTxtBoardDontExist = "Esta pizarra no existe";
+
+var LanguageTxtInternalError = "Lo sentimos, error interno del sistema";
+
+var LanguageTxtWrongCurrentPassword  = "Contraseña actual no correcta";
+
+var LanguageTxtUpdatePasswordFormErrorNoMatch = "Contraseña y confirmar contraseña no coinciden";
+var LanguageTxtUpdatePasswordFormErrorComplex   = "Contraseña demasiado simple, por favor pon una contraseña con al menos 8 caracteres,  combina mayúsculas, minúsculas, un numero y algún carácter especial por ejemplo !@#$%*()-=\u002b,.?";
+var LanguageTxtUpdatePasswordFormSuccess = "Contraseña actualizada";
+var LanguageTxtLogin = "Ingresar";
+var LanguageTxtRegister = "Crear cuenta";
+var LanguageTxtConfirmEmailSuccessful = "Correo confirmado correctamente";
+var LanguageTxtConfirmEmailNotSuccessful = "Código no válido o correo ha sido confirmado previamente";
+var LanguageTxtFeedBackReceived =  "Mensaje enviado!\u003cbr\/\u003eGracias por tu mensaje, revisaremos tu mensaje lo antes posible.";
+var LanguageTxtFeedBackError = "Error al enviar";
+var LanguageTxtConfirmEmailRecover = "Se ha enviado correo electrónico de recuperatión de contraseña";
+var LanguageTxtEmailNotFound = "Correo electrónico no encontrado";
+var LanguageTxtEmailNotValid = "Correo electrónico no válido";
+var LanguageTxtResetPasswordCodeNotFound= "El código para crear la nueva contraseña no válido";
+var LanguageTxtChooseTemplate= "Seleccionar plantilla";
+var LanguageTxtDeleteWhiteboardError= "Error, no se ha podido borrar la pizarra";
+var LanguageTxtDeleteTemplateError= "Error, no se ha podido borrar la plantilla";
+var LanguageTxtProfileUpdatedSuccessMessage = "Perfil actualizado";
+var LanguageTxtProfilePictureTooBig = "Tamaño de imagen demasiado grande(max 10mb)";
+var LanguageTxtProfilePictureWrongExt = "Tipo de archivo no correcto, permitidos: jpg, jpeg, gif, png";
+var LanguageTxtDeleteUserGenericError = "No se ha podido eliminar la cuenta";
+var LanguageTxtNetworkError = "Error de red";
+var EmailUsedDeletedAccount = "Este correo ha sido usado en una cuenta eliminada, por favor contacta con soporte";
+var LanguageTxtOpenDrawBoard = "Abrir (Dibujar)";
+var LanguageTxtMessageNoAuthorization = "No tienes permisos para acceder a esta pagina.";
+var LanguageTxtConfirmEmailSendSuccess= "Correo de confirmación enviado";
+var LanguageTxtConfirmEmailSendError= "Error al enviar el correo de confirmación";
+var LanguageTxtAlreadyConfirmedAccount = "Tu cuenta ya esta confirmada.";
+var LanguageBoardLocked             = "Pizarra deshabilitada temporalmente por su dueño";
+var LanguageTxtNotAuthorizedMaybeLogin = "No está autorizado para realizar esta acción, tal vez deba volver a iniciar sesión.";
+var LanguageTxtTooManyEmailsSentConfirm = "Recientemente se envió un correo electrónico, verifique su correo electrónico, también puede intentarlo nuevamente en unas horas.";
+var LanguageTxtTemplateUpdated = "Plantilla actualizada";
+var LanguageTxtWhiteboardUpdated = "Pizarra actualizada";
+var LanguageTxtNewsletterUnsubscribeSuccess= "Ha sido dadao debaja de nuestra lista ce correos.";
+var LanguageTxtNewsletterUnsubscribeFail= "Error al relalizar la petición.";
+var LanguageTxtNewsletterUnsubscribeAlreadyDone= "No estas suscrito a la newsletter o el código no existe";
+var LanguageTxtUserUpdateGenericError = "No se ha podido actualizar los datos de usuario";
+var LanguageTxtAccountNotFound = "Cuenta no encontrada";
+var LanguageTxtEmailUpdatedSuccessMessage = "Correo actualizado.";
+var LanguageTxtEmailNoChange  = "El correo electrónico no ha cambiado";
+var LanguageTxtPleaseLoginToUseAudioBoard = "Inicie sesión en su cuenta gratuita para crear con la pizarra de funciones de audio.";
+var LanguageTxtSettingsWhiteboard= "Ajustes de la pizarra";
+var LanguageTxtConsentIntro= "\u003cb\u003eNuestro sitio web utiliza cookies\u003c\/b\u003e\u003cbr\u003eNotebookCast utiliza cookies propias y de terceros y tecnologías similares con fines estadísticos y de marketing. Puede configurar sus preferencias seleccionando las opciones a continuación. Retira tu consentimiento en cualquier momento a través del icono de escudo.";
+var LanguageTxtConsent1= "Las cookies necesarias ayudan con la funcionalidad básica de nuestro sitio web, p. recordar si dio su consentimiento para las cookies, recordar la configuración de las herramientas de su pizarra.";
+var LanguageTxtConsent2= "Las cookies de marketing permiten mostrarle anuncios más relevantes en nuestro sitio web, específicamente utilizamos los productos publicitarios de Google.";
+var LanguageTxtConsent3= "Las cookies analíticas permiten recopilar estadísticas sobre el uso y el tráfico en nuestro sitio web, para que podamos mejorarlo.";
+var LanguageTxtConsentAcceptAll= "Aceptar todo";
+var LanguageTxtConsentAccepSelected= "Aceptar solo seleccionados";
+var LanguageTxtLoadingButton = "Cargando...";
+var LanguageTxtCreate = "Crear";
+var LanguageTooManyRequests = "Error de red o Demasiadas solicitudes desde tu ubicación, inténtalo de nuevo en un rato.";
+var LanguageAlreadyDoneInLast30 = "Ya solicitado en los últimos 30 minutos";
+
+var Token;
+
+</script>
+</head>
+
+<body class="line-numbers">
+  
+  <div id="header">
+    
+<nav class="py-3 navbar navbar-expand-lg fixed-top auto-hiding-navbar navbar-light">
+
+
+
+
+
+
+
+
+
+    <div class="container">
+        <a id="topLogoLinkId" class="navbar-brand py-0" href="https://www.notebookcast.com/es"><span></span></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-content" aria-controls="navbar-content" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-otherrrrrrrrrr">
+                <i class="  fas fa-solid fa-bars"></i>
+            </span>
+
+
+        </button>
+
+
+
+
+
+        <div class="collapse navbar-collapse" id="navbar-content">
+            <ul class="navbar-nav ml-auto text-nowrap">
+                <li class="nav-item mx-1"><a id="topNavHomeId" class="nav-link" href="https://www.notebookcast.com/es">Home</a></li>
+                
+                
+                    <li class="nav-item mx-1"><a id="topNavJoinBoardId" class="nav-link "  href="../join-board.html">Unirse a una pizarra</a></li>
+                    <li class="nav-item mx-1"><a id="topNavCreateBoardId" class="nav-link  " href="../new-board.html">Crear pizarra</a></li>
+                
+
+
+
+
+                <li class="nav-item ml-1 mr-3 dropdown">
+                    <a class="nav-link dropdown-toggle  active-top-menu  " id="docs-dropdown" href="support.html#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Centro de ayuda</a>
+                    <div class="dropdown-menu animated_dropdown shadow-lg" aria-labelledby="docs-dropdown">
+                       
+                        <a id="topNavHelpId" class="dropdown-item" href="introduction.html">Ayuda</a>
+                        <a id="topNavFaqId" class="dropdown-item" href="faqs.html">Preguntas frecuentes</a>
+                        <a id="topNavSupportId" class="dropdown-item" href="support.html">Soporte</a>
+                        <a id="topNavChangeLogId" class="dropdown-item" href="changelog.html">Últimos cambios</a>
+                    </div>
+                </li>
+
+
+                <li class="nav-item mx-1"><a id="topNavBlog" class="nav-link  " href="../blog.html">Blog</a></li>
+
+
+                
+                <li class="nav-item mx-1"><a id="topNavNewAccountId"  class="nav-link " href="../register.html">Crear cuenta</a></li>
+                <li class="nav-item mx-1"><a id="topNavLoginId" class="nav-link "  href="../login.html"><i class="far fa-user mr-2"></i>Ingresar</a></li>
+
+                
+
+                
+                    
+
+
+                    
+                
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container" id="breadcrumbs">
+    <div class="row">
+        <div class="col">
+            <hr class="mt-10">
+            <nav class="mb-0 pt-3 pb-1" aria-label="breadcrumb">
+
+            </nav>
+        </div>
+    </div>
+</div>
+
+
+
+  </div>
+  <div id="content" style="font-size: 1.20rem!important;">
+    <div class="container-xxl pt-2">
+
+
+        <div class="col-lg-4 col-md-12 col-sm-12 pb-lg-10 d-lg-none d-xl-none" id="menu-mobile">
+    <div class="card accordion py-2 px-3 border-primary"><a class="card-header btn btn-link px-1 py-1 mb-0 text-dark collapsed lead border-0 text-left rounded d-flex" href="support.html#" data-toggle="collapse" data-target="#a" aria-expanded="true" aria-controls="a" id="q"><span class="lead text-primary mb-0 pb-0 mr-5">Contents</span></a>
+        <div class="card-body collapse text-muted pt-0 pb-0 px-1 border-0" id="a" aria-labelledby="q">
+            <ul class="mx-0 px-0 pt-6 list-unstyled">
+                <li class="mb-3"><span class="initialism">Primeros pasos</span></li>
+                <li class="mb-2"><a class="btn-link text-primary" href="introduction.html">Ayuda</a></li>
+                <li class="mb-2"><a class="btn-link text-primary" href="faqs.html">Preguntas frecuentes</a></li>
+                <li class="mb-2"><a class="btn-link text-primary" href="support.html">Contacta con soporte</a></li>
+                <li class="mb-2"><a class="btn-link text-primary" href="changelog.html">Últimos cambios<small class="mb-1 ml-1"><mark class="bg-white border border-gray text-muted rounded-lg px-2 font-weight-normal">8.5.0</mark></small></a></li>
+            </ul>
+            <ul class="helpMenuElements mx-0 px-0 pt-4 list-unstyled">
+                <li class="mb-3"><span class="initialism">Pizarra</span></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+      <div class="row">
+        <div  class="col-lg-2 col-md-12 col-sm-12 pb-lg-10 d-none d-lg-block d-xl-block" id="menu">
+
+   <div style="position: fixed;top:69px">
+    <ul  class="mx-0 px-0 pt-6 list-unstyled">
+        <li class="mb-3"><span class="initialism">Primeros pasos</span></li>
+        <li class="mb-2"><a class="btn-link text-primary" href="introduction.html">
+                
+                Ayuda</a></li>
+        <li class="mb-2"><a class="btn-link text-primary" href="faqs.html">
+                
+                Preguntas frecuentes</a></li>
+        <li class="mb-2"><a class="btn-link text-primary" href="support.html">
+                
+                    <i class="fas fa-angle-right"></i>
+                
+                Contacta con soporte</a></li>
+        <li class="mb-2"><a class="btn-link text-primary" href="changelog.html">
+                
+                Últimos cambios<small class="mb-1 ml-1"><mark class="bg-white border border-gray text-muted rounded-lg px-2 font-weight-normal">8.5.0</mark></small></a></li>
+    </ul>
+    <ul class="helpMenuElements mx-0 px-0 pt-4 list-unstyled">
+        <li class="mb-3"><b>Categorias de ayuda</b></li>
+    </ul>
+   </div>
+</div>
+
+        <div class="col-lg-6 col-md-12 col-sm-12 pt-4 pb-12" id="text">
+          <h1 class="display-4 mb-4">Soporte</h1>
+          <blockquote class="blockquote lead text-muted py-2 px-5 mb-6 mr-10">
+
+            Queremos ofrecer el mejor soporte posible, contáctanos mediante el correo electrónico o usando el formulario:
+            <mark class="bg-secondary-light"><a class="text-secondary" href="mailto:support@notebookcast.com">support@notebookcast.com</a></mark></blockquote>
+
+
+
+          <div class="card rounded-lg shadow-sm">
+            <div class="card-header px-lg-7 px-4 pt-3 pb-0 border-0 bg-transparent">
+              <div class="row d-flex justify-content-center">
+                <div class="col">
+                  <nav>
+                    <div class="nav nav-tabs text-center" role="tablist"><a class="nav-item nav-link font-weight-bold px-3 active" id="nav-login-tab" data-toggle="tab" href="support.html#nav-login" role="tab" aria-controls="nav-login" aria-selected="true">
+                        <h5>Rellenar Soporte</h5>
+                      </a>
+                    </div>
+                  </nav>
+                </div>
+              </div>
+            </div>
+            <div class="tab-content">
+              <div class="tab-pane fade show active" id="nav-login" role="tabpanel" aria-labelledby="nav-login-tab">
+                <div class="card-block px-lg-7 px-4  pb-5">
+                  <div id="messageForm" class="text-twitter modal-form-message">
+
+                  </div>
+                  <form id="feedbackForm" >
+                   <div class="form-group mb-4"><input id="title" class="form-control rounded"  placeholder="Asunto"></div>
+                    <div class="form-group mb-4">
+                      <select id="ticket-type"  class="form-control rounded" placeholder="Whiteboard size">
+
+                        <option value="" selected="selected">Tipo de mensaje</option>
+                        <option value="_feedback">Sugerencias</option>
+                        <option value="_support_request">Soporte</option>
+                        <option value="_bug_report">Notificar error</option>
+                      </select>
+                    </div>
+
+                    <div class="form-group mb-4">
+                      <textarea id="message"  class="form-control rounded" rows="5"  placeholder="¿Como podemos ayudarte?"></textarea>
+                    </div>
+
+
+
+                    <div class="form-group mb-4"><input id="userName" class="form-control rounded"  placeholder="Nombre"></div>
+
+                    <div class="form-group mb-4"><input id="userEmail" type="email" class="form-control rounded"  placeholder="Tu correo electrónico"></div>
+
+
+                    <button class="btn btn-primary mb-4 w-100" type="submit">Enviar</button>
+
+                  </form>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+        <div class="col-lg-3 col-md-12 col-sm-12 pt-4 pb-12">
+          
+
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="bg-light" id="footer">
+    <div class="container py-5">
+        <div class="row py-4">
+            <div class="col-lg-2 col-md-12"></div>
+            <div class="col-lg-3 col-md-6">
+                <ul class="list-unstyled mb-3">
+                    <li class="mb-3 text-nowrap"><span class="initialism text-dark">Contáctanos</span></li>
+
+                    <li class="mb-2 text-nowrap"><a class="text-muted" href="support.html">Formulario de soporte</a></li>
+                    <li class="text-nowrap"><a class="text-muted text-nowrap" href="mailto:support@notebookcast.com"><i class="fa fa-envelope-square mr-2"></i>support@notebookcast.com</a></li>
+
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <ul class="list-unstyled mb-3">
+                    <li class="mb-3 text-nowrap"><span class="initialism text-dark">Documentación</span></li>
+                    <li class="mb-2 text-nowrap"><a  class="text-muted" href="introduction.html">Primeros pasos</a></li>
+                    <li class="mb-2 text-nowrap"><a  class="text-muted" href="faqs.html">Preguntas frecuentes</a></li>
+                    <li class="mb-2 text-nowrap"><a class="text-muted" href="changelog.html">Últimos cambios</a></li>
+                </ul>
+            </div>
+
+
+            <div class="col-lg-2 col-md-6">
+
+                <ul class="list-unstyled mb-3">
+                    <li class="mb-3"><span class="initialism text-dark">Idioma</span></li>
+                    <li class="mb-2 text-nowrap">
+                        <a id="eng-lang-select" class="lang-select text-muted "  href="https://www.notebookcast.com/en">English (Inglés)</a>
+                    </li>
+                    <li class="mb-2 text-nowrap">
+                        <a id="spa-lang-select"  class="lang-select text-muted  selected-language "  href="https://www.notebookcast.com/es">Castellano (Spanish)</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col text-center pb-3 pt-4"><span class="text-muted">&copy;2025 NoteBookCast</span></div>
+        </div>
+    </div>
+</div>
+
+
+
+<script
+        
+        async
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8552970452535231"
+        crossorigin="anonymous">
+</script>
+
+
+
+
+  
+  <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="login-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered border-0" role="document">
+        <div class="modal-content">
+            <div class="card rounded-lg shadow-sm">
+                <div class="card-header px-lg-7 px-3 pt-3 pb-0 border-0 bg-transparent">
+                    <div class="row d-flex justify-content-center no-gutters">
+                        <div class="col">
+                            <nav>
+                                <div class="nav nav-tabs text-center" id="nav-tab" role="tablist"><a class="nav-item nav-link font-weight-bold px-3 active" id="nav-login-modal-modal-tab" data-toggle="tab" href="support.html#nav-login-modal" role="tab" aria-controls="nav-login-modal" aria-selected="true">
+                                        <h5>Ingresar</h5>
+                                    </a><a class="nav-item nav-link font-weight-bold px-3" id="nav-register-modal-modal-tab" data-toggle="tab" href="support.html#nav-register-modal" role="tab" aria-controls="nav-register-modal" aria-selected="true">
+                                        <h5>Crear cuenta</h5>
+                                    </a></div>
+                            </nav>
+                        </div><button class="close text-muted" type="button" data-dismiss="modal" aria-label="Close" id="closeLoginModalid"><i class="fas fa-times-circle" aria-hidden="true"></i></button>
+                    </div>
+                </div>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="nav-login-modal" role="tabpanel" aria-labelledby="nav-login-modal-modal-tab">
+                        <div class="card-block px-lg-7 px-3  pb-5">
+                            <div id="message-login" class="text-twitter modal-form-message">
+
+                            </div>
+                            <form id="login-form">
+                                <div class="form-group mb-2"><input id="email"  class="form-control rounded" placeholder="Correo electrónico"></div>
+                                <div class="form-group mb-3"><input id="password"  class="form-control rounded" type="password" placeholder="Contraseña"></div>
+                                <div class="form-check mb-4">
+                                </div>
+                                <button id="modalLoginButton" class="btn btn-secondary mb-4 w-100" type="submit">Enviar</button>
+                                <a class="text-muted small" href="../password-recover.html"><i class="fas fa-question-circle mr-2"></i>He olvidado mi contraseña</a>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="nav-register-modal" role="tabpanel" aria-labelledby="nav-register-modal-modal-tab">
+                        <div class="card-block px-lg-7 px-4 pb-5">
+                            <div id="message-register" class="text-twitter modal-form-message">
+
+                            </div>
+                            <form  id="register-form">
+                                <div class="input-group mb-2">
+                                <input id="firstName" class="form-control rounded  mr-1" type="text" placeholder="Nombre">
+                                <input id="lastName" class="form-control rounded ml-1" type="text" placeholder="Apellido">
+                                </div>
+
+
+                                <div class="form-group mb-2"><input id="username" class="form-control rounded" type="text" placeholder="Nombre usuario"></div>
+                                <div class="form-group mb-2"><input id="newEmail" class="form-control rounded"  placeholder="Correo electrónico"></div>
+                                <div class="form-group mb-2"><input id="newPassword" class="form-control rounded" type="password" placeholder="Contraseña"></div>
+                                <div class="form-group mb-3"><input id="passwordConfirm" class="form-control rounded" type="password" placeholder="Confirmar contraseña"></div>
+                                <div class="form-check mb-4"><label class="form-check-label text-muted"><input id="acceptTerms" class="form-check-input mr-2" type="checkbox" value=""><small>Acepto los <a href="../privacy.html">términos y condiciones de uso</a></small></label></div>
+                                <button id="modalRegisterButton" class="btn btn-secondary mb-4 w-100" type="submit">Enviar</button>
+
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+  <script>
+    
+    </script>
+  <script src="../../js/jquery-3.5.1.min.js"> </script>
+  <script src="../../js/popper.min.js"></script>
+  <script src="../../js/bootstrap.min.js"></script>
+  <script src="../../js/slick.min.js"></script>
+  <script src="../../js/wow.min.js"></script>
+  <script src="../../js/jquery.fancybox.min.js"></script>
+  <script src="../../js/jarallax.js"></script>
+  <script src="../../js/smooth-scroll.js"></script>
+  <script src="../../js/jquery.bootstrap-autohidingnavbar.min.js"></script>
+
+  <script src="../../js/jquery.inview.min.js" type="module"></script>
+  <script src="../../js/pace.min.js" type="module"></script>
+  <script src="../../js/prism.js"></script>
+  <script src="../../js/typed.js"></script>
+  <script src="../../js/theme.js%3Fv=txs" type="module"></script>
+  <script src="../../js/nbc3a.js%3Fv=txs"></script>
+  
+  
+<script>
+  $(document).ready(function() {
+    
+        fillHelpMenu("es");
+        fillFaqs("es");
+    
+
+    document.getElementById('feedbackForm').onsubmit = function (e) {
+      e.preventDefault();
+      SendFeedBack("https://ipa-og.notebookcast.com/v1/feedback/fake-code");
+    };
+
+  });
+</script>
+</body>
+
+</html>
